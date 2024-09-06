@@ -135,8 +135,17 @@ namespace Conference.Pages
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-            mainWindow.Navigation.Navigate(new Pages.MainPage(managerUser));
+            if (Action == "Добавление")
+            {
+                MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+                mainWindow.Navigation.Navigate(new Pages.ConferencePage(managerUser));
+            }
+            else if (Action == "Редактирование")
+            {
+                MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+                mainWindow.Navigation.Navigate(new Pages.MainPage(managerUser));
+            }
+                
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {

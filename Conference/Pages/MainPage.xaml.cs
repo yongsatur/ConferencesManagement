@@ -76,7 +76,7 @@ namespace Conference.Pages
 
             for (int i = 0; i < conferences.Count; i++) 
             {
-                if (DateTime.Today > conferences[i].dateEnd && conferences[i].idStatus != 2) 
+                if (DateTime.Today > conferences[i].dateEnd && conferences[i].idStatus == 1) 
                 {
                     ConnectDataBase.connectDataBase.Conferences.Find(conferences[i].idConference).idStatus = 2;
                     ConnectDataBase.connectDataBase.SaveChanges();
