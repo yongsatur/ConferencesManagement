@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Conference"
         mc:Ignorable="d"
         Title="Управление конференциями" Icon="Images/logo.png"
-        Width="1200" Height="600" WindowState="Maximized">
+        Width="1200" Height="650" WindowState="Maximized">
     <Grid>
         <Frame x:Name="Navigation" NavigationUIVisibility="Hidden"/>
     </Grid>

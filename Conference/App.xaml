@@ -66,7 +66,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" BorderBrush="#bbb" BorderThickness="0,0,0,1.3">
+                        <Border x:Name="border" BorderBrush="#bbb" BorderThickness="0,0,0,1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -93,7 +93,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type PasswordBox}">
                         <Border x:Name="border" 
-                                BorderBrush="#bbb" BorderThickness="0,0,0,1.3">
+                                BorderBrush="#bbb" BorderThickness="0,0,0,1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -293,24 +293,17 @@
         </ControlTemplate>
 
         <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
             <Setter Property="Foreground" Value="#111"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                        <Border Name="Border"
-                                Padding="5"
-                                SnapsToDevicePixels="true">
+                        <Border Name="Border" Padding="7" SnapsToDevicePixels="true">
                             <ContentPresenter />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsHighlighted" Value="true">
-                                <Setter TargetName="Border" Property="Background" Value="#fafafa"/>
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource GradientOpacity}"/>
                                 <Setter Property="Cursor" Value="Hand"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="#888888"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -397,7 +390,7 @@
             <Setter Property="Foreground" Value="#111"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Padding" Value="10"/>
-            <Setter Property="Height" Value="100"/>
+            <Setter Property="Height" Value="150"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="AcceptsReturn" Value="True"/>
 
@@ -452,7 +445,7 @@
             <Setter Property="Foreground" Value="#111"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Margin" Value="0,0,20,0"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
@@ -460,33 +453,36 @@
         <Style TargetType="TextBlock" x:Key="Place">
             <Setter Property="Foreground" Value="#777"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-        </Style>
-
-        <Style TargetType="TextBlock" x:Key="Description">
-            <Setter Property="Foreground" Value="#111"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,15,0,15"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
 
         <Style TargetType="TextBox" x:Key="Form">
-            <Setter Property="Background" Value="#bbb"/>
+            <Setter Property="Background" Value="#ddd"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="5"/>
-            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="Margin" Value="0,0,5,15"/>
+            <Setter Property="Foreground" Value="#111"/>
             <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Description">
+            <Setter Property="Foreground" Value="#111"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
 
         <Style TargetType="Button" x:Key="ActionButton">
-            <Setter Property="Height" Value="35"/>
+            <Setter Property="Height" Value="33"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Margin" Value="15,0,0,0"/>
+            <Setter Property="Margin" Value="30,25,15,0"/>
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -543,17 +539,11 @@
                 <Setter.Value>
                     <ControlTemplate>
                         <Grid x:Name="Grid">
-                            <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" 
-                                       Height="Auto" Fill="Transparent"/>
                             <Border x:Name="Rectangle1" CornerRadius="1,1,1,1" HorizontalAlignment="Stretch" 
                                     VerticalAlignment="Stretch" Width="Auto" Height="Auto" 
                                     Background="{TemplateBinding Background}"/>
                         </Grid>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="Tag" Value="Horizontal">
-                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
-                                <Setter TargetName="Rectangle1" Property="Height" Value="5"/>
-                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Cursor" Value="Hand"/>
                             </Trigger>
@@ -564,12 +554,11 @@
         </Style>
 
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Foreground" Value="{DynamicResource Gradient}"/>
+            <Setter Property="Foreground" Value="#ddd"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ScrollBar}">
-                        <Grid x:Name="GridRoot" Width="3" Background="{x:Null}">
+                        <Grid x:Name="GridRoot" Width="2.5" Background="{x:Null}">
                             <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="False">
                                 <Track.Thumb>
                                     <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" 
@@ -638,6 +627,14 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource Gradient}"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource Gradient}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="DatePickerTextBox">
@@ -674,7 +671,7 @@
                                         <VisualTransition GeneratedDuration="0"/>
                                     </VisualStateGroup.Transitions>
                                     <VisualState x:Name="Unfocused"/>
-                                    <VisualState x:Name="Focused" />
+                                    <VisualState x:Name="Focused"/>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="1" Opacity="1" Padding="{TemplateBinding Padding}">
@@ -981,20 +978,20 @@
                             </Rectangle>
                             <Rectangle x:Name="Background" RadiusX="1" RadiusY="1" Opacity="0">
                                 <Rectangle.Fill>
-                                    <SolidColorBrush Color="#ccc" />
+                                    <SolidColorBrush Color="#008d85" Opacity=".3"/>
                                 </Rectangle.Fill>
                             </Rectangle>
                             <ContentPresenter x:Name="NormalText" Margin="1,0,1,1"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <TextElement.Foreground>
-                                    <SolidColorBrush Color="#FF333333" />
+                                    <SolidColorBrush Color="#FF333333"/>
                                 </TextElement.Foreground>
                             </ContentPresenter>
                             <Rectangle x:Name="CalendarButtonFocusVisual" Visibility="Collapsed" IsHitTestVisible="false"
                                        RadiusX="1" RadiusY="1">
                                 <Rectangle.Stroke>
-                                    <SolidColorBrush Color="#bbb" />
+                                    <SolidColorBrush Color="#008d85"/>
                                 </Rectangle.Stroke>
                             </Rectangle>
                         </Grid>
@@ -1048,7 +1045,7 @@
                                     <VisualState x:Name="Unselected"/>
                                     <VisualState x:Name="Selected">
                                         <Storyboard>
-                                            <DoubleAnimation Duration="0" Storyboard.TargetName="SelectedBackground" To=".75" Storyboard.TargetProperty="Opacity"/>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetName="SelectedBackground" To=".25" Storyboard.TargetProperty="Opacity"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
@@ -1115,11 +1112,11 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Rectangle x:Name="TodayBackground" Fill="#008d85" Opacity="0" RadiusX="1" RadiusY="1"/>
-                            <Rectangle x:Name="SelectedBackground" Fill="#ddd" Opacity="0" RadiusX="1" RadiusY="1"/>
+                            <Rectangle x:Name="SelectedBackground" Fill="#008d85" Opacity="0" RadiusX="1" RadiusY="1"/>
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                            <Rectangle x:Name="HighlightBackground" Fill="#ddd" Opacity="0" RadiusX="1" RadiusY="1"/>
+                            <Rectangle x:Name="HighlightBackground" Fill="#008d85" Opacity="0" RadiusX="1" RadiusY="1"/>
                             <ContentPresenter x:Name="NormalText" TextElement.Foreground="#FF111111" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="5,1,5,1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Rectangle x:Name="DayButtonFocusVisual" IsHitTestVisible="false" RadiusX="1" RadiusY="1" Stroke="#bbb" Visibility="Collapsed"/>
+                            <Rectangle x:Name="DayButtonFocusVisual" IsHitTestVisible="false" RadiusX="1" RadiusY="1" Stroke="#008d85" Visibility="Collapsed"/>
                             <Rectangle x:Name="SelectedConferenceDate" Fill="#008d85" Opacity="0"/>
                         </Grid>
                     </ControlTemplate>

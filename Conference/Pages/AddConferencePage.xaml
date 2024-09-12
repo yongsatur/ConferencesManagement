@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="65"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
         <Grid Background="{DynamicResource Gradient}">
@@ -50,11 +51,11 @@
             <ScrollViewer Grid.Column="1" Margin="0,70">
                 <StackPanel VerticalAlignment="Center" Margin="45,0,30,0">
                     <TextBlock x:Name="HeaderBox" Text="Добавить данные о конференции"
-                   Foreground="#111" FontSize="25" FontWeight="SemiBold"
-                   HorizontalAlignment="Center" Margin="0,0,0,50"/>
+                               Foreground="#111" FontSize="25" FontWeight="SemiBold"
+                               HorizontalAlignment="Center" Margin="0,0,0,50"/>
                     <TextBlock Text="Тема конференции:" Style="{DynamicResource Header}"/>
                     <TextBox x:Name="HeaderConferenceBox" Margin="0"
-                 Style="{DynamicResource TextBox}"/>
+                             Style="{DynamicResource TextBox}"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -65,17 +66,17 @@
                         <StackPanel Margin="0,0,7.5,0">
                             <TextBlock Text="Дата начала:" Style="{DynamicResource Header}"/>
                             <DatePicker x:Name="DateStart" Style="{DynamicResource DatePickerStyle}"
-                            PreviewTextInput="DatePicker_PreviewTextInput"/>
+                                       PreviewTextInput="DatePicker_PreviewTextInput"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="7.5,0,7.5,0">
                             <TextBlock Text="Дата окончания:" Style="{DynamicResource Header}"/>
                             <DatePicker x:Name="DateEnd" Style="{DynamicResource DatePickerStyle}"
-                            PreviewTextInput="DatePicker_PreviewTextInput"/>
+                                       PreviewTextInput="DatePicker_PreviewTextInput"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" Margin="7.5,0,0,0">
                             <TextBlock Text="Статус конференции:" Style="{DynamicResource Header}"/>
                             <ComboBox x:Name="StatusBox" Margin="0"  
-                          ItemsPanel="{Binding Statuses}" Style="{DynamicResource FilterComboBox}" >
+                                      ItemsPanel="{Binding Statuses}" Style="{DynamicResource FilterComboBox}" >
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding nameStatus}"/>
@@ -97,7 +98,7 @@
                         <StackPanel Grid.Column="2" Margin="7.5,0,0,0">
                             <TextBlock Text="Форма проведения:" Style="{DynamicResource Header}"/>
                             <ComboBox x:Name="FormBox" Margin="0"  
-                          ItemsPanel="{Binding Forms}" Style="{DynamicResource FilterComboBox}" >
+                                      ItemsPanel="{Binding Forms}" Style="{DynamicResource FilterComboBox}" >
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding nameForm}"/>
@@ -110,14 +111,16 @@
                     <TextBlock Text="Описание:" Style="{DynamicResource Header}"/>
                     <TextBox x:Name="DescriptionBox" Style="{DynamicResource LongTextBox}"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
-                    Margin="0,50,0,0">
+                                Margin="0,50,0,0">
                         <Button x:Name="AddConferenceButton" Content="Добавить" 
-                    Style="{DynamicResource Button}" Click="AddConferenceButton_Click"/>
+                                Style="{DynamicResource Button}" Click="AddConferenceButton_Click"/>
                         <Button x:Name="Cancel" Content="Отменить" 
-                    Style="{DynamicResource Button}" Click="Cancel_Click"/>
+                                Style="{DynamicResource Button}" Click="Cancel_Click"/>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
+        
+        <Border Grid.Row="3" Grid.ColumnSpan="2" Background="{DynamicResource Gradient}"/>
     </Grid>
 </Page>

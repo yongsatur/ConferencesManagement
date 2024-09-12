@@ -105,7 +105,7 @@ namespace Conference.Pages
             EndConferencesBox.Text = endConferences.ToString();
             CancelConferencesBox.Text = cancelConferences.ToString();
 
-            if (planeConferences >= 11 && planeConferences <= 20) { PlaneSentenseBlock.Text = "Конференций было запланировано"; }
+            if (planeConferences >= 10 && planeConferences <= 20) { PlaneSentenseBlock.Text = "Конференций было запланировано"; }
             else if (planeConferences == 1) { PlaneSentenseBlock.Text = "Конференция была запланирована"; }
             else if (planeConferences >= 2 && planeConferences <= 4) { PlaneSentenseBlock.Text = "Конференции были запланированы"; }
             else if (planeConferences  == 0 || (planeConferences >= 5 && planeConferences <= 9)) { PlaneSentenseBlock.Text = "Конференций было запланировано"; }
@@ -115,7 +115,7 @@ namespace Conference.Pages
                      planeConferences.ToString()[-1] == 4) { PlaneSentenseBlock.Text = "Конференции были запланированы"; }
             else { PlaneSentenseBlock.Text = "Конференций было запланировано"; }
 
-            if (endConferences >= 11 && endConferences <= 20) { EndSentenseBlock.Text = "Конференций было завершено"; }
+            if (endConferences >= 10 && endConferences <= 20) { EndSentenseBlock.Text = "Конференций было завершено"; }
             else if (endConferences == 1) { EndSentenseBlock.Text = "Конференция была завершена"; }
             else if (endConferences >= 2 && endConferences <= 4) { EndSentenseBlock.Text = "Конференции были завершены"; }
             else if (endConferences == 0 || (endConferences >= 5 && endConferences <= 9)) { EndSentenseBlock.Text = "Конференций было завершено"; }
@@ -125,7 +125,7 @@ namespace Conference.Pages
                      endConferences.ToString()[-1] == 4) { EndSentenseBlock.Text = "Конференции были завершены"; }
             else { EndSentenseBlock.Text = "Конференций было завершено"; }
 
-            if (activeConferences >= 11 && activeConferences <= 20) { ActiveSentenseBlock.Text = "Конференций ожидается"; }
+            if (activeConferences >= 10 && activeConferences <= 20) { ActiveSentenseBlock.Text = "Конференций ожидается"; }
             else if (activeConferences == 1) { ActiveSentenseBlock.Text = "Конференция ожидается"; }
             else if (activeConferences >= 2 && activeConferences <= 4) { ActiveSentenseBlock.Text = "Конференции ожидается"; }
             else if (activeConferences == 0 || (activeConferences >= 5 && activeConferences <= 9)) { ActiveSentenseBlock.Text = "Конференций ожидается"; }
@@ -135,7 +135,7 @@ namespace Conference.Pages
                      activeConferences.ToString()[-1] == 4) { ActiveSentenseBlock.Text = "Конференции ожидается"; }
             else { ActiveSentenseBlock.Text = "Конференций ожидается"; }
 
-            if (cancelConferences >= 11 && cancelConferences <= 20) { CancelSentenseBlock.Text = "Конференций было отменено"; }
+            if (cancelConferences >= 10 && cancelConferences <= 20) { CancelSentenseBlock.Text = "Конференций было отменено"; }
             else if (cancelConferences == 1) { CancelSentenseBlock.Text = "Конференция была отменена"; }
             else if (cancelConferences >= 2 && cancelConferences <= 4) { CancelSentenseBlock.Text = "Конференции были отменены"; }
             else if (cancelConferences == 0 || (cancelConferences >= 5 && cancelConferences <= 9)) { CancelSentenseBlock.Text = "Конференции были отменены"; }

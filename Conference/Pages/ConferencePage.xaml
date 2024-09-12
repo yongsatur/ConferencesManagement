@@ -17,6 +17,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
         <Grid Background="{DynamicResource Gradient}">
@@ -43,8 +44,7 @@
             </Button>
         </DockPanel>
 
-        <DockPanel Grid.Row="1" Grid.ColumnSpan="2"
-                   LastChildFill="True" Margin="0,20">
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20">
             <TextBlock Text="Сортировать по статусу:" 
                        Foreground="#111" FontWeight="SemiBold"
                        VerticalAlignment="Center" Margin="50,0,0,0"/>
@@ -85,59 +85,60 @@
                     Style="{DynamicResource Button}" Click="AddConferenceButton_Click"/>
         </DockPanel>
 
-        <ScrollViewer Grid.Row="3" Grid.ColumnSpan="2"
+        <ScrollViewer Grid.Row="3" Grid.ColumnSpan="2" Margin="0,15,45,0"
                       PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-            <ListBox x:Name="ConferencesList" BorderThickness="0"
-                     ItemsSource="{Binding Conferences}" HorizontalContentAlignment="Stretch">
+            <ListBox x:Name="ConferencesList" BorderThickness="0" ItemsSource="{Binding Conferences}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <DockPanel Width="{Binding ActualWidth, ElementName=ConferencesList}">
-                            <Border BorderBrush="#ccc" BorderThickness="0,0,0,1"
-                                    Padding="0,30" Margin="50,0,35,0">
-                                <DockPanel HorizontalAlignment="Stretch" LastChildFill="True">
-                                    <DockPanel Margin="15,15,30,15" DockPanel.Dock="Left"
-                                               VerticalAlignment="Center">
+                            <Border BorderBrush="#ddd" BorderThickness="0,0,0,1"
+                                    Padding="0,25" Margin="50,0,25,0">
+                                <DockPanel>
+                                    <DockPanel Margin="15,0,30,0" VerticalAlignment="Center">
                                         <DockPanel DockPanel.Dock="Top">
                                             <TextBlock x:Name="DayStartBox" Text="{Binding dateStart, StringFormat=dd}" 
-                                                       Style="{DynamicResource Date}"/>
-                                            <TextBlock Text=" " Style="{DynamicResource Date}"/>
-                                            <TextBlock x:Name="MountEndBox" Text="{Binding dateEnd, StringFormat=MMM, ConverterCulture=ru-RU}" 
+                                                       Style="{DynamicResource Date}" Margin="0,0,5,0"/>
+                                            <TextBlock x:Name="MountEndBox" Text="{Binding dateStart, StringFormat=MMM, ConverterCulture=ru-RU}" 
                                                        Style="{DynamicResource Date}"/>
                                         </DockPanel>
                                         <DockPanel DockPanel.Dock="Bottom">
                                             <TextBlock x:Name="DayEndBox" Text="{Binding dateEnd, StringFormat=dd}" 
-                                                       Style="{DynamicResource Date}"/>
-                                            <TextBlock Text=" " Style="{DynamicResource Date}"/>
-                                            <TextBlock x:Name="MountStartBox" Text="{Binding dateStart, StringFormat=MMM, ConverterCulture=ru-RU}" 
+                                                       Style="{DynamicResource Date}" Margin="0,0,5,0"/>
+                                            <TextBlock x:Name="MountStartBox" Text="{Binding dateEnd, StringFormat=MMM, ConverterCulture=ru-RU}" 
                                                        Style="{DynamicResource Date}"/>
                                         </DockPanel>
                                     </DockPanel>
-                                    <DockPanel DockPanel.Dock="Right" Margin="10,0,0,0">
-                                        <Button DockPanel.Dock="Left" x:Name="EditButton" ToolTip="Редактировать" DataContext="{Binding idConference}" 
+                                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                                        <Button x:Name="EditButton" ToolTip="Редактировать" DataContext="{Binding idConference}" 
                                                 Style="{DynamicResource ActionButton}" Click="EditButton_Click">
                                             <Image Source="../Images/edit.png"/>
                                         </Button>
-                                        <Button DockPanel.Dock="Right" x:Name="DeleteButton" ToolTip="Удалить" DataContext="{Binding idConference}"
+                                        <Button x:Name="DeleteButton" ToolTip="Удалить" DataContext="{Binding idConference}"
                                                 Style="{DynamicResource ActionButton}" Click="DeleteButton_Click">
                                             <Image Source="../Images/delete.png"/>
                                         </Button>
-                                    </DockPanel>
+                                    </StackPanel>
                                     <DockPanel>
-                                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,15">
-                                            <TextBlock Text="{Binding nameConference}" Style="{DynamicResource Name}"/>
+                                        <TextBlock DockPanel.Dock="Top" Text="{Binding nameConference}" Style="{DynamicResource Name}"/>
+                                        <TextBlock DockPanel.Dock="Top" Text="{Binding place}" Style="{DynamicResource Place}"/>
+                                        <DockPanel DockPanel.Dock="Top">
                                             <TextBox Text="{Binding Forms.nameForm}" Style="{DynamicResource Form}">
                                                 <TextBox.Resources>
                                                     <Style TargetType="{x:Type Border}">
-                                                        <Setter Property="BorderBrush" Value="#999"/>
                                                         <Setter Property="CornerRadius" Value="3"/>
                                                     </Style>
                                                 </TextBox.Resources>
                                             </TextBox>
-                                        </StackPanel>
-                                        <TextBlock DockPanel.Dock="Top" Text="{Binding place}" 
-                                                   Style="{DynamicResource Place}"/>
-                                        <TextBlock DockPanel.Dock="Top" Text="{Binding description}" 
-                                                   Style="{DynamicResource Description}"/>
+                                            <TextBox Text="{Binding Statuses.nameStatus}" Style="{DynamicResource Form}">
+                                                <TextBox.Resources>
+                                                    <Style TargetType="{x:Type Border}">
+                                                        <Setter Property="BorderBrush" Value="#bbb"/>
+                                                        <Setter Property="CornerRadius" Value="3"/>
+                                                    </Style>
+                                                </TextBox.Resources>
+                                            </TextBox>
+                                        </DockPanel>
+                                        <TextBlock DockPanel.Dock="Top" Text="{Binding description}" Style="{DynamicResource Description}"/>
                                     </DockPanel>
                                 </DockPanel>
                             </Border>
@@ -148,7 +149,7 @@
         </ScrollViewer>
         
         <DockPanel Grid.Row="4" Grid.ColumnSpan="2"
-                   HorizontalAlignment="Right" Margin="0,20,50,25">
+                   HorizontalAlignment="Right" Margin="0,20,50,15">
             <Button x:Name="BackButton" Click="BackButton_Click"
                     Style="{DynamicResource ActionButton}" Margin="0">
                 <Image Source="/Images/prevarrow.png"/>
@@ -160,5 +161,7 @@
                 <Image Source="/Images/nextarrow.png"/>
             </Button>
         </DockPanel>
+
+        <Border Grid.Row="5" Grid.ColumnSpan="2" Background="{DynamicResource Gradient}"/>
     </Grid>
 </Page>
