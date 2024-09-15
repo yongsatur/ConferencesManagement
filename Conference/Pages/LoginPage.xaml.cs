@@ -35,19 +35,22 @@ namespace Conference.Pages
                     warningBox.Text = "Вы не ввели данные в поля формы!";
                     warningBox.Visibility = Visibility.Visible;
                 }
-                for (int i = 0; i < managers.Count; i++) 
+                else 
                 {
-                    if (loginBox.Text == managers[i].login && passwordBox.Password == managers[i].password)
+                    for (int i = 0; i < managers.Count; i++)
                     {
-                        warningBox.Visibility = Visibility.Collapsed;
+                        if (loginBox.Text == managers[i].login && passwordBox.Password == managers[i].password)
+                        {
+                            warningBox.Visibility = Visibility.Collapsed;
 
-                        MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-                        mainWindow.Navigation.Navigate(new Pages.MainPage(managers[i]));
-                    }
-                    else 
-                    {
-                        warningBox.Text = "Вы ввели неправильный логин или пароль!";
-                        warningBox.Visibility = Visibility.Visible;
+                            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+                            mainWindow.Navigation.Navigate(new Pages.MainPage(managers[i]));
+                        }
+                        else
+                        {
+                            warningBox.Text = "Вы ввели неправильный логин или пароль!";
+                            warningBox.Visibility = Visibility.Visible;
+                        }
                     }
                 }
             } 

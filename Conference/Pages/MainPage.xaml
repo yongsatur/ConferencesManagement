@@ -42,7 +42,7 @@
                          Style="{DynamicResource RadioButton}" Click="PassiveConferenceButton_Click"/>
         </StackPanel>
 
-        <ScrollViewer Grid.Row="2" Grid.RowSpan="2" Margin="0,0,5,20" 
+        <ScrollViewer Grid.Row="2" Grid.RowSpan="2" Margin="0,15,5,20" 
                       PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
             <ListBox x:Name="ConferencesList" BorderThickness="0" ItemsSource="{Binding Conferences}">
                 <ListBox.ItemTemplate>
