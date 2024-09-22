@@ -439,6 +439,15 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding idStatus}" Value="3">
+                    <Setter Property="Foreground" Value="#555"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding idStatus}" Value="2">
+                    <Setter Property="Foreground" Value="#555"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="Name">
