@@ -532,7 +532,7 @@
             <Setter Property="Margin" Value="0,0,20,0"/>
         </Style>
 
-        <!-- Стили для Страницы добавления / редактипования конференции  -->
+        <!-- Стили для Страницы добавления / редактирования конференции  -->
 
         <Style TargetType="TextBlock" x:Key="Header">
             <Setter Property="Foreground" Value="#111"/>
