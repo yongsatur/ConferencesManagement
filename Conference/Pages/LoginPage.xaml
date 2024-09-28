@@ -20,7 +20,7 @@
 
         <DockPanel Grid.Column="0" Grid.ColumnSpan="3"
                    Background="{DynamicResource Gradient}">
-            <Image Source="../Images/logo.png"/>
+            <Image Source="../Images/logo.png" Margin="5"/>
         </DockPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">

@@ -42,68 +42,66 @@
                          Style="{DynamicResource RadioButton}" Click="PassiveConferenceButton_Click"/>
         </StackPanel>
 
-        <ScrollViewer Grid.Row="2" Grid.RowSpan="2" Margin="0,15,5,20" 
-                      PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-            <ListBox x:Name="ConferencesList" BorderThickness="0" ItemsSource="{Binding Conferences}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel Width="{Binding ActualWidth, ElementName=ConferencesList}">
-                            <Border BorderBrush="#ddd" BorderThickness="0,0,0,1"
-                                    Padding="0,25" Margin="50,0,25,0">
-                                <DockPanel>
-                                    <DockPanel Margin="15,0,30,0" VerticalAlignment="Center">
-                                        <DockPanel DockPanel.Dock="Top">
-                                            <TextBlock x:Name="DayStartBox" Text="{Binding dateStart, StringFormat=dd}" 
-                                                       Style="{DynamicResource Date}" Margin="0,0,5,0"/>
-                                            <TextBlock x:Name="MountEndBox" Text="{Binding dateStart, StringFormat=MMM, ConverterCulture=ru-RU}" 
-                                                       Style="{DynamicResource Date}"/>
-                                        </DockPanel>
-                                        <DockPanel DockPanel.Dock="Bottom">
-                                            <TextBlock x:Name="DayEndBox" Text="{Binding dateEnd, StringFormat=dd}" 
-                                                       Style="{DynamicResource Date}" Margin="0,0,5,0"/>
-                                            <TextBlock x:Name="MountStartBox" Text="{Binding dateEnd, StringFormat=MMM, ConverterCulture=ru-RU}" 
-                                                       Style="{DynamicResource Date}"/>
-                                        </DockPanel>
+        <ListBox Grid.Row="2" Grid.RowSpan="2" Margin="0,0,12.5,20" VirtualizingPanel.ScrollUnit="Pixel"
+                 x:Name="ConferencesList" BorderThickness="0" ItemsSource="{Binding Conferences}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Width="{Binding ActualWidth, ElementName=ConferencesList}">
+                        <Border BorderBrush="#ddd" BorderThickness="0,0,0,1"
+                                Padding="0,25" Margin="50,0,35,0">
+                            <DockPanel>
+                                <DockPanel Margin="15,0,30,0" VerticalAlignment="Center">
+                                    <DockPanel DockPanel.Dock="Top">
+                                        <TextBlock x:Name="DayStartBox" Text="{Binding dateStart, StringFormat=dd}" 
+                                                    Style="{DynamicResource Date}" Margin="0,0,5,0"/>
+                                        <TextBlock x:Name="MountEndBox" Text="{Binding dateStart, StringFormat=MMM, ConverterCulture=ru-RU}" 
+                                                    Style="{DynamicResource Date}"/>
                                     </DockPanel>
-                                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
-                                        <Button x:Name="EditButton" ToolTip="Редактировать" DataContext="{Binding idConference}" 
-                                                Style="{DynamicResource ActionButton}" Click="EditButton_Click">
-                                            <Image Source="../Images/edit.png"/>
-                                        </Button>
-                                        <Button x:Name="DeleteButton" ToolTip="Удалить" DataContext="{Binding idConference}"
-                                                Style="{DynamicResource ActionButton}" Click="DeleteButton_Click">
-                                            <Image Source="../Images/delete.png"/>
-                                        </Button>
-                                    </StackPanel>
-                                    <DockPanel>
-                                        <TextBlock DockPanel.Dock="Top" Text="{Binding nameConference}" Style="{DynamicResource Name}"/>
-                                        <TextBlock DockPanel.Dock="Top" Text="{Binding place}" Style="{DynamicResource Place}"/>
-                                        <DockPanel DockPanel.Dock="Top">
-                                            <TextBox Text="{Binding Forms.nameForm}" Style="{DynamicResource Form}">
-                                                <TextBox.Resources>
-                                                    <Style TargetType="{x:Type Border}">
-                                                        <Setter Property="CornerRadius" Value="3"/>
-                                                    </Style>
-                                                </TextBox.Resources>
-                                            </TextBox>
-                                            <TextBox Text="{Binding Statuses.nameStatus}" Style="{DynamicResource Form}">
-                                                <TextBox.Resources>
-                                                    <Style TargetType="{x:Type Border}">
-                                                        <Setter Property="BorderBrush" Value="#bbb"/>
-                                                        <Setter Property="CornerRadius" Value="3"/>
-                                                    </Style>
-                                                </TextBox.Resources>
-                                            </TextBox>
-                                        </DockPanel>
-                                        <TextBlock DockPanel.Dock="Top" Text="{Binding description}" Style="{DynamicResource Description}"/>
+                                    <DockPanel DockPanel.Dock="Bottom">
+                                        <TextBlock x:Name="DayEndBox" Text="{Binding dateEnd, StringFormat=dd}" 
+                                                    Style="{DynamicResource Date}" Margin="0,0,5,0"/>
+                                        <TextBlock x:Name="MountStartBox" Text="{Binding dateEnd, StringFormat=MMM, ConverterCulture=ru-RU}" 
+                                                    Style="{DynamicResource Date}"/>
                                     </DockPanel>
                                 </DockPanel>
-                            </Border>
-                        </DockPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+                                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                                    <Button x:Name="EditButton" ToolTip="Редактировать" DataContext="{Binding idConference}" 
+                                            Style="{DynamicResource ActionButton}" Click="EditButton_Click">
+                                        <Image Source="../Images/edit.png"/>
+                                    </Button>
+                                    <Button x:Name="DeleteButton" ToolTip="Удалить" DataContext="{Binding idConference}"
+                                            Style="{DynamicResource ActionButton}" Click="DeleteButton_Click">
+                                        <Image Source="../Images/delete.png"/>
+                                    </Button>
+                                </StackPanel>
+                                <DockPanel>
+                                    <TextBlock DockPanel.Dock="Top" Text="{Binding nameConference}" Style="{DynamicResource Name}"/>
+                                    <TextBlock DockPanel.Dock="Top" Text="{Binding place}" Style="{DynamicResource Place}"/>
+                                    <DockPanel DockPanel.Dock="Top">
+                                        <TextBox Text="{Binding Forms.nameForm}" Style="{DynamicResource Form}">
+                                            <TextBox.Resources>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Setter Property="CornerRadius" Value="3"/>
+                                                </Style>
+                                            </TextBox.Resources>
+                                        </TextBox>
+                                        <TextBox Text="{Binding Statuses.nameStatus}" Style="{DynamicResource Form}">
+                                            <TextBox.Resources>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Setter Property="BorderBrush" Value="#bbb"/>
+                                                    <Setter Property="CornerRadius" Value="3"/>
+                                                </Style>
+                                            </TextBox.Resources>
+                                        </TextBox>
+                                    </DockPanel>
+                                    <TextBlock DockPanel.Dock="Top" Text="{Binding description}" Style="{DynamicResource Description}"/>
+                                </DockPanel>
+                            </DockPanel>
+                        </Border>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Border Grid.Column="1" BorderThickness="3,0,0,3" BorderBrush="#ccc"/>
         
@@ -119,7 +117,7 @@
 
         <ScrollViewer Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"
                       HorizontalScrollBarVisibility="Disabled"
-                      VerticalContentAlignment="Center" Margin="15,20,0,20">
+                      VerticalContentAlignment="Center" Margin="12.5,20,0,20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
