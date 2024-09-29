@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Conference.Pages
 {
@@ -38,15 +39,16 @@ namespace Conference.Pages
             List<Conferences> conferencesList = new List<Conferences>();
 
             var conferences = ConnectDataBase.connectDataBase.Conferences.ToList();
+            var sorted = conferences.OrderByDescending(u => u.dateStart).ToList();
 
             for (int i = (Convert.ToInt32(numberPage.Content) * 10) - 10; i < Convert.ToInt32(numberPage.Content) * 10; i++) 
             {
                 try 
                 {
-                    if (StatusBox.SelectedIndex == 0 && FormBox.SelectedIndex == 0) { conferencesList.Add(conferences[i]); }
-                    else if (StatusBox.SelectedIndex == conferences[i].idStatus && FormBox.SelectedIndex == 0) { conferencesList.Add(conferences[i]); }
-                    else if (StatusBox.SelectedIndex == 0 && FormBox.SelectedIndex == conferences[i].idForm) { conferencesList.Add(conferences[i]); }
-                    else if (StatusBox.SelectedIndex == conferences[i].idStatus && FormBox.SelectedIndex == conferences[i].idForm) { conferencesList.Add(conferences[i]); }
+                    if (StatusBox.SelectedIndex == 0 && FormBox.SelectedIndex == 0) { conferencesList.Add(sorted[i]); }
+                    else if (StatusBox.SelectedIndex == sorted[i].idStatus && FormBox.SelectedIndex == 0) { conferencesList.Add(sorted[i]); }
+                    else if (StatusBox.SelectedIndex == 0 && FormBox.SelectedIndex == sorted[i].idForm) { conferencesList.Add(sorted[i]); }
+                    else if (StatusBox.SelectedIndex == sorted[i].idStatus && FormBox.SelectedIndex == sorted[i].idForm) { conferencesList.Add(sorted[i]); }
                 }
                 catch { }
             }

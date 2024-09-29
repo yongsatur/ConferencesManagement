@@ -35,34 +35,35 @@ namespace Conference.Pages
             List<Conferences> conferencesList = new List<Conferences>();
 
             var conferences = ConnectDataBase.connectDataBase.Conferences.ToList();
+            var sorted = conferences.OrderByDescending(u => u.dateStart).ToList();
 
             if (AllConferenceButton.IsChecked == true)
             {
-                for (int i = 0; i < conferences.Count; i++) 
+                for (int i = 0; i < sorted.Count; i++) 
                 {
-                    if (conferences[i].dateStart.Month == month && conferences[i].dateStart.Year == year) { conferencesList.Add(conferences[i]); }
+                    if (sorted[i].dateStart.Month == month && sorted[i].dateStart.Year == year) { conferencesList.Add(sorted[i]); }
                 }
                 
             }
             else if (ActiveConferenceButton.IsChecked == true) 
             {
-                for (int i = 0; i < conferences.Count; i++)
+                for (int i = 0; i < sorted.Count; i++)
                 {
-                    if (conferences[i].dateStart.Month == month && conferences[i].dateStart.Year == year && conferences[i].idStatus == 1) { conferencesList.Add(conferences[i]); }
+                    if (sorted[i].dateStart.Month == month && sorted[i].dateStart.Year == year && sorted[i].idStatus == 1) { conferencesList.Add(sorted[i]); }
                 }
             }
             else if (CancelConferenceButton.IsChecked == true) 
             {
-                for (int i = 0; i < conferences.Count; i++)
+                for (int i = 0; i < sorted.Count; i++)
                 {
-                    if (conferences[i].dateStart.Month == month && conferences[i].dateStart.Year == year && conferences[i].idStatus == 3) { conferencesList.Add(conferences[i]); }
+                    if (sorted[i].dateStart.Month == month && sorted[i].dateStart.Year == year && sorted[i].idStatus == 3) { conferencesList.Add(sorted[i]); }
                 }
             }
             else if (PassiveConferenceButton.IsChecked == true) 
             {
-                for (int i = 0; i < conferences.Count; i++)
+                for (int i = 0; i < sorted.Count; i++)
                 {
-                    if (conferences[i].dateStart.Month == month && conferences[i].dateStart.Year == year && conferences[i].idStatus == 2) { conferencesList.Add(conferences[i]); }
+                    if (sorted[i].dateStart.Month == month && sorted[i].dateStart.Year == year && sorted[i].idStatus == 2) { conferencesList.Add(sorted[i]); }
                 }
             }
             ConferencesList.ItemsSource = conferencesList;
