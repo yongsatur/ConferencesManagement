@@ -108,7 +108,7 @@ namespace Conference.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Заполнены не все поля");
+                    MessageBox.Show("Вы заполнили не все поля!", "Обновление...", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
