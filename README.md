@@ -4,7 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![WPF](https://img.shields.io/badge/WPF-.NET_Desktop-5C2D91?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
 
-**Система управления конференциями** – это десктопное приложение на `C#` с использованием `WPF`, созданное в рамках производственной практики. Оно предоставляет менеджеру удобный инструмент для управления конференциями.
+**Система управления конференциями** – учебный проект в Забайкальском государственном университете. Это десктопное приложение на `C#` с использованием `WPF`. Оно предоставляет менеджеру удобный инструмент для управления конференциями.
 
 ## Основные возможности
 
