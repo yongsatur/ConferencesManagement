@@ -1,9 +1,5 @@
 # Десктопное приложение для менеджера конференций
 
-[![C#](https://img.shields.io/badge/C%23-12.0-239120?style=for-the-badge&logo=c-sharp&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
-[![WPF](https://img.shields.io/badge/WPF-.NET_Desktop-5C2D91?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
-
 Это учебный проект в Забайкальском государственном университете – десктопное приложение на `C#` с использованием `WPF`. Оно предоставляет менеджеру удобный инструмент для управления конференциями.
 
 ## Основные возможности
@@ -17,5 +13,5 @@ $`\color{yellow}*`$ **Визуальный календарь**: отображ�
 Проект построен на современном стеке технологий Microsoft:
 
 $`\color{yellow}*`$ **Язык программирования**: `C#` ;<br>
-$`\color{yellow}*`$ **Фреймворк**: `.NET` ;<br>
+$`\color{yellow}*`$ **Фреймворк**: `.NET Framework` ;<br>
 $`\color{yellow}*`$ **Интерфейс**: `WPF` с использованием `XAML`.
